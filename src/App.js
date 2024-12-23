@@ -1,12 +1,11 @@
 import React from 'react';
-import Background from './components/Background';
+import AnimatedShapes from './components/AnimatedShapes';
 
 // Component
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Nav from './components/Nav';
 import Projects from './components/ProjectsContainer';
-import About from './components/About';
 
 // Styles
 import './scss/_main.scss';
@@ -18,10 +17,9 @@ function App() {
         <Nav />
       </nav>
       <main>
+        <AnimatedShapes />
         <Header />
-        <Background />
         <Projects />
-        {/* <About /> */}
       </main>
       <footer>
         <Footer />

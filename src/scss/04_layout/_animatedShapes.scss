@@ -1,0 +1,38 @@
+.shapes-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  pointer-events: none;
+  overflow: hidden; // Pour s'assurer que les formes restent dans le container
+
+  .shape {
+    position: absolute;
+    pointer-events: auto;
+    cursor: move;
+    user-select: none; // Empêche la sélection du texte pendant le drag
+
+    &.circle {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-color: #ff5c00;
+      left: 20%; // Changé de right à left pour mieux contrôler la position
+    }
+
+    &.rectangle {
+      width: 120px;
+      height: 80px;
+      background-color: #4169e1;
+      left: 50%;
+    }
+    &.triangle {
+      width: 160px;
+      height: 160px;
+      background-color: #ff69b4; // Rose
+      left: 70%;
+    }
+  }
+}

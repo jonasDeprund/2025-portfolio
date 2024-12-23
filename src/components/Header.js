@@ -1,11 +1,6 @@
 import React from 'react';
-import Background from '../components/Background';
-// Import image
 
 function Header() {
-  // JS
-
-  // RETURN
   return (
     <div className="header">
       {/* text */}
@@ -18,7 +13,6 @@ function Header() {
           </h1>
         </div>
       </div>
-      <Background />
     </div>
   );
 }
