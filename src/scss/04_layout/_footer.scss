@@ -1,0 +1,19 @@
+.social-container {
+  display: flex;
+  align-items: center;
+  :nth-child(2) {
+    margin-left: 1.6rem;
+  }
+}
+
+a.icon {
+  margin: 0.8rem;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  .img {
+    display: flex;
+    width: 32px;
+    height: 32px;
+  }
+}

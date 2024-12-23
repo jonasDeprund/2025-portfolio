@@ -1,0 +1,21 @@
+////////
+////
+//// HEADER
+////
+///////
+
+.header {
+  height: 80vh;
+  max-height: calc(100vh - 200px);
+  overflow: hidden;
+}
+
+.row {
+  height: 100%;
+}
+
+.header__title {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}

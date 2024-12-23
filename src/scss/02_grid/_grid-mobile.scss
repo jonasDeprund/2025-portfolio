@@ -1,0 +1,130 @@
+////////
+////
+//// Grid mobile
+////
+///////
+
+@media only screen and (max-width: 767px) {
+  :root {
+    --grid-columns: 12;
+    --grid-gutter: 1rem;
+    --grid-spacer: 1.5rem;
+  }
+  .cell-start-0-m {
+    grid-column-start: 1 !important;
+  }
+  .cell-end-0-m {
+    grid-column-end: 1 !important;
+  }
+  .cell-0-m {
+    grid-column: span 0 !important;
+  }
+  .cell-start-1-m {
+    grid-column-start: 2 !important;
+  }
+  .cell-end-1-m {
+    grid-column-end: 2 !important;
+  }
+  .cell-1-m {
+    grid-column: span 1 !important;
+  }
+  .cell-start-2-m {
+    grid-column-start: 3 !important;
+  }
+  .cell-end-2-m {
+    grid-column-end: 3 !important;
+  }
+  .cell-2-m {
+    grid-column: span 2 !important;
+  }
+  .cell-start-3-m {
+    grid-column-start: 4 !important;
+  }
+  .cell-end-3-m {
+    grid-column-end: 4 !important;
+  }
+  .cell-3-m {
+    grid-column: span 3 !important;
+  }
+  .cell-start-4-m {
+    grid-column-start: 5 !important;
+  }
+  .cell-end-4-m {
+    grid-column-end: 5 !important;
+  }
+  .cell-4-m {
+    grid-column: span 4 !important;
+  }
+  .cell-start-5-m {
+    grid-column-start: 6 !important;
+  }
+  .cell-end-5-m {
+    grid-column-end: 6 !important;
+  }
+  .cell-5-m {
+    grid-column: span 5 !important;
+  }
+  .cell-start-6-m {
+    grid-column-start: 7 !important;
+  }
+  .cell-end-6-m {
+    grid-column-end: 7 !important;
+  }
+  .cell-6-m {
+    grid-column: span 6 !important;
+  }
+  .cell-start-7-m {
+    grid-column-start: 8 !important;
+  }
+  .cell-end-7-m {
+    grid-column-end: 8 !important;
+  }
+  .cell-7-m {
+    grid-column: span 7 !important;
+  }
+  .cell-start-8-m {
+    grid-column-start: 9 !important;
+  }
+  .cell-end-8-m {
+    grid-column-end: 9 !important;
+  }
+  .cell-8-m {
+    grid-column: span 8 !important;
+  }
+  .cell-start-9-m {
+    grid-column-start: 10 !important;
+  }
+  .cell-end-9-m {
+    grid-column-end: 10 !important;
+  }
+  .cell-9-m {
+    grid-column: span 9 !important;
+  }
+  .cell-start-10-m {
+    grid-column-start: 11 !important;
+  }
+  .cell-end-10-m {
+    grid-column-end: 11 !important;
+  }
+  .cell-10-m {
+    grid-column: span 10 !important;
+  }
+  .cell-start-11-m {
+    grid-column-start: 12 !important;
+  }
+  .cell-end-11-m {
+    grid-column-end: 12 !important;
+  }
+  .cell-11-m {
+    grid-column: span 11 !important;
+  }
+  .cell-start-12-m {
+    grid-column-start: 13 !important;
+  }
+  .cell-end-12-m {
+    grid-column-end: 13 !important;
+  }
+  .cell-12-m {
+    grid-column: span 12 !important;
+  }
+}

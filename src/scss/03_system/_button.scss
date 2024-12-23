@@ -1,0 +1,28 @@
+////////
+////
+//// Colors
+////
+///////
+
+.button {
+  display: flex;
+  border-radius: 999px;
+  background: var(--color-secondary);
+  color: var(--color-primary);
+  padding: 4px 16px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-in-out;
+}
+
+.button:hover {
+  background-color: var(--color-tertiary);
+  color: var(--color-primary);
+}
+
+.button__icon {
+  margin-left: 0.8rem;
+  width: 2rem;
+  height: 100%;
+}
