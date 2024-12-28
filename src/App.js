@@ -12,18 +12,25 @@ import './scss/_main.scss';
 
 function App() {
   return (
-    <div>
-      <nav>
-        <Nav />
-      </nav>
-      <main>
-        <AnimatedShapes />
-        <Header />
-        <Projects />
-      </main>
-      <footer>
-        <Footer />
-      </footer>
+    <div style={{ position: 'relative' }}>
+      <AnimatedShapes />
+      <div
+        style={{
+          position: 'relative',
+          zIndex: 2, // Mettre le contenu au-dessus des formes
+        }}
+      >
+        <nav>
+          <Nav />
+        </nav>
+        <main>
+          <Header />
+          <Projects />
+        </main>
+        <footer>
+          <Footer />
+        </footer>
+      </div>
     </div>
   );
 }

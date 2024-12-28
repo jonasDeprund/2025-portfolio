@@ -1,0 +1,26 @@
+////////
+////
+//// Interactions
+////
+///////
+
+// Pour le conteneur principal qui contient les formes
+.shapes-container {
+  pointer-events: all !important; // Force les interactions avec les formes
+}
+
+// Pour le contenu qui doit rester au-dessus
+.content-layer {
+  position: relative;
+  z-index: 1;
+  pointer-events: none; // Désactive les interactions par défaut
+
+  * {
+    pointer-events: auto; // Réactive les interactions pour le contenu
+  }
+}
+
+.text-selectable {
+  user-select: text !important;
+  pointer-events: auto !important;
+}

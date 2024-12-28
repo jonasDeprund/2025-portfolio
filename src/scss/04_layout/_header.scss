@@ -5,8 +5,7 @@
 ///////
 
 .header {
-  height: 80vh;
-  max-height: calc(100vh - 200px);
+  height: 100vh;
   overflow: hidden;
 }
 
@@ -18,4 +17,5 @@
   display: flex;
   align-items: center;
   height: 100%;
+  transform: translateY(-88px);
 }
