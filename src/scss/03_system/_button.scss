@@ -6,19 +6,18 @@
 
 .button {
   display: flex;
-  border-radius: 999px;
-  background: var(--color-secondary);
-  color: var(--color-primary);
-  padding: 4px 16px;
-  cursor: pointer;
-  align-items: center;
+  padding: 16px;
   justify-content: center;
+  align-items: center;
+  border-radius: 0.4rem;
+  background: var(--color-grey-dark);
+  color: var(--color-white);
+  cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
 
 .button:hover {
-  background-color: var(--color-tertiary);
-  color: var(--color-primary);
+  background-color: var(--color-grey-medium);
 }
 
 .button__icon {

@@ -38,9 +38,13 @@ section {
 body {
   line-height: 1;
   overscroll-behavior: none;
+  background-color: var(--color-black) !important;
+  width: 100%;
+  height: 100%;
 }
 ol,
 ul {
+  list-style: none;
 }
 blockquote,
 q {

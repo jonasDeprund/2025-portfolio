@@ -5,17 +5,27 @@
 ///////
 
 @font-face {
-  font-family: 'marr_sans_webmedium';
-  src: url('../../fonts/marrsans-medium-webfont.woff2') format('woff2'),
-    url('../../fonts/marrsans-medium-webfont.woff') format('woff');
+  font-family: 'greed_condensed_trialsemibold';
+  src: url('../../fonts/greedcondensedtrial-semibold-webfont.woff2')
+      format('woff2'),
+    url('../../fonts/greedcondensedtrial-semibold-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'marr_sans_webregular';
-  src: url('../../fonts/marrsans-regular-webfont.woff2') format('woff2'),
-    url('../../fonts/marrsans-regular-webfont.woff') format('woff');
+  font-family: 'neue_haas_unica_w1gmedium';
+  src: url('../../fonts/neue_haas_unica_w1g_medium-webfont.woff2')
+      format('woff2'),
+    url('../../fonts/neue_haas_unica_w1g_medium-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'neue_haas_unica_w1gregular';
+  src: url('../../fonts/neue_haas_unica_w1g-webfont.woff2') format('woff2'),
+    url('../../fonts/neue_haas_unica_w1g-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }

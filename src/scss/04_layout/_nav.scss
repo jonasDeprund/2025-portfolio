@@ -18,23 +18,32 @@ body {
 
 .navigation {
   width: 100%;
-  height: 88px;
   display: flex;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2.4rem 0;
+    width: 100%;
+  }
 }
 
-.navigation__item {
+.logo {
   display: flex;
-  justify-content: space-between;
+  border-radius: 0.4rem;
+  padding: 1.6rem;
+  background: var(--color-grey-dark);
+  color: var(--color-white);
+  justify-content: center;
   align-items: center;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-.title {
-  color: var(--color-secondary);
-}
-
-.wrapper-header {
-  height: 250px;
+.logo:hover {
+  background-color: var(--color-grey-medium);
 }
 
 .footer {
@@ -73,12 +82,6 @@ canvas#canvas {
   overflow: hidden;
   width: 100vw;
   height: 100vh;
-  transform: scale(2) translateY(0%);
-  --gradient-color-1: #000000;
-  --gradient-color-2: #4897f7;
-  --gradient-color-3: #010676;
-  --gradient-color-4: #010676;
-  --gradient-speed: 0.000002;
 }
 
 @media only screen and (max-width: 767px) {
