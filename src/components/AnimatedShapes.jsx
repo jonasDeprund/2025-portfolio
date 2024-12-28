@@ -110,38 +110,67 @@ const AnimatedShapes = () => {
 
     // Création des murs invisibles
     const createWalls = () => {
-      const wallThickness = calcUtils.remToPx(2);
+      const wallThickness = calcUtils.remToPx(6); // Murs plus épais
+      const extraSpace = wallThickness * 2; // Espace supplémentaire pour éviter les fuites
+
       return [
         // Sol
         Bodies.rectangle(
           window.innerWidth / 2,
-          window.innerHeight,
-          window.innerWidth,
+          window.innerHeight + wallThickness / 2,
+          window.innerWidth + extraSpace,
           wallThickness,
-          { isStatic: true, render: { visible: false } }
+          {
+            isStatic: true,
+            friction: 1,
+            restitution: 0.2,
+            render: { visible: false },
+          }
         ),
         // Mur gauche
         Bodies.rectangle(
-          0,
+          -wallThickness / 2,
           window.innerHeight / 2,
           wallThickness,
-          window.innerHeight,
-          { isStatic: true, render: { visible: false } }
+          window.innerHeight + extraSpace,
+          {
+            isStatic: true,
+            friction: 1,
+            restitution: 0.2,
+            render: { visible: false },
+          }
         ),
         // Mur droit
         Bodies.rectangle(
-          window.innerWidth,
+          window.innerWidth + wallThickness / 2,
           window.innerHeight / 2,
           wallThickness,
-          window.innerHeight,
-          { isStatic: true, render: { visible: false } }
+          window.innerHeight + extraSpace,
+          {
+            isStatic: true,
+            friction: 1,
+            restitution: 0.2,
+            render: { visible: false },
+          }
+        ),
+        // Mur du haut
+        Bodies.rectangle(
+          window.innerWidth / 2,
+          -wallThickness / 2,
+          window.innerWidth + extraSpace,
+          wallThickness,
+          {
+            isStatic: true,
+            friction: 1,
+            restitution: 0.2,
+            render: { visible: false },
+          }
         ),
       ];
     };
 
     // Création d'une forme avec échelle
     const createScaledShape = (config, xPos, yPos) => {
-      // Pour les cercles
       if (config.type === 'circle') {
         const scale =
           calcUtils.remToPx(calcUtils.pxToRem(config.dimensions.width)) /
@@ -153,13 +182,14 @@ const AnimatedShapes = () => {
             ...config.style,
             lineWidth: 1,
           },
-          restitution: 0.8,
-          friction: 0.1,
-          density: 0.001,
+          restitution: 0.5, // Moins de rebond (0 = pas de rebond, 1 = rebond maximal)
+          friction: 0.5, // Plus de friction (0 = glisse beaucoup, 1 = glisse peu)
+          density: 0.5, // Un peu plus lourd (0.1 = très léger, 1 = très lourd)
+          frictionAir: 0.01, // Résistance à l'air (0 = pas de résistance, 1 = résistance maximale)
         });
       }
 
-      // Pour les formes avec vertices
+      // Pour les autres formes
       const scale =
         calcUtils.remToPx(calcUtils.pxToRem(config.dimensions.width)) /
         config.originalWidth;
@@ -174,34 +204,36 @@ const AnimatedShapes = () => {
           lineWidth: 1,
         },
         angle: calcUtils.degToRad(config.dimensions.rotation),
-        restitution: 0.6,
-        friction: 0.1,
-        density: 0.001,
+        restitution: 0.5, // Moins de rebond (0 = pas de rebond, 1 = rebond maximal)
+        friction: 0.5, // Plus de friction (0 = glisse beaucoup, 1 = glisse peu)
+        density: 0.5, // Un peu plus lourd (0.1 = très léger, 1 = très lourd)
+        frictionAir: 0.01, // Résistance à l'air (0 = pas de résistance, 1 = résistance maximale)
       });
     };
 
     // Création de toutes les formes
     const createShapes = () => {
+      const startHeight = calcUtils.heightPercent(30); // Commence à 30% de la hauteur
       return [
         createScaledShape(
           SHAPES_CONFIG.shape1,
           calcUtils.widthPercent(20),
-          -100
+          startHeight
         ),
         createScaledShape(
           SHAPES_CONFIG.shape2,
           calcUtils.widthPercent(40),
-          -200
+          startHeight - 100
         ),
         createScaledShape(
           SHAPES_CONFIG.shape3,
           calcUtils.widthPercent(60),
-          -300
+          startHeight - 200
         ),
         createScaledShape(
           SHAPES_CONFIG.shape4,
           calcUtils.widthPercent(80),
-          -400
+          startHeight - 300
         ),
       ];
     };
@@ -213,7 +245,7 @@ const AnimatedShapes = () => {
 
       World.add(engine.world, [...walls, ...shapes]);
 
-      // Ajout de l'interaction souris
+      // Contrainte de souris plus stricte
       const mouse = Mouse.create(render.canvas);
       const mouseConstraint = MouseConstraint.create(engine, {
         mouse: mouse,
@@ -221,7 +253,16 @@ const AnimatedShapes = () => {
           stiffness: 0.2,
           render: { visible: false },
         },
+        collisionFilter: {
+          mask: 0x0001, // Limite les interactions
+        },
       });
+
+      // Limiter la force maximale que peut exercer la souris
+      engine.world.gravity.scale = 0.001;
+      engine.constraintIterations = 10;
+      engine.positionIterations = 10;
+      engine.velocityIterations = 10;
 
       World.add(engine.world, mouseConstraint);
       render.mouse = mouse;
