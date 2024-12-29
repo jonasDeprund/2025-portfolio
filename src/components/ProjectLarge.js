@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import iconArrow from '../svg/arrow.svg';
+import iconArrow from '../svg/arrow-extern.svg';
 
 export default function ProjectLarge({ title, image, link }) {
   const [isHovered, setIsHovered] = useState(false);
@@ -28,7 +28,7 @@ export default function ProjectLarge({ title, image, link }) {
             />
           </div>
           <div className="project__description">
-            <h3 className="text-h2">{title}</h3>
+            <h3 className="text-h3">{title}</h3>
             <img className="project__icon" src={iconArrow} alt="Arrow" />
           </div>
         </div>

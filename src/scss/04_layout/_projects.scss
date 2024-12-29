@@ -43,9 +43,23 @@ canvas {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 1.6rem 0;
-  height: auto;
-  overflow: hidden;
+  padding: 0.8rem 0;
+}
+
+.project__text {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.project__category {
+  margin: 0;
+  display: inline-block;
+
+  &.text-h3 {
+    display: block;
+    color: var(--color-grey-light);
+  }
 }
 
 .project__image {
@@ -63,15 +77,21 @@ canvas {
 .project__icon {
   width: 3.6rem;
   height: 3.6rem;
+  padding: 0.6rem;
   position: absolute;
   right: 0;
-  opacity: 0;
+  background-color: var(--color-grey-dark);
+  color: var(--color-white);
+  border-radius: 999rem;
   transition: all 250ms ease-in-out;
+  svg {
+    filter: brightness(0) invert(1);
+  }
 }
 
 .project__content:hover .project__icon {
-  // transform: translateY(-50%);
-  opacity: 1;
+  background-color: var(--color-grey-medium);
+  color: var(--color-white);
 }
 
 // Mobile

@@ -21,7 +21,7 @@ import imageBanque from '../images/thumb-banque.png';
 import imageBanqueHovered from '../images/thumb-banque-hovered.png';
 import imageSlate from '../images/thumb-slate.png';
 import imageSlateHovered from '../images/thumb-slate-hovered.png';
-import iconArrow from '../svg/arrow.svg';
+import iconArrow from '../svg/arrow-extern.svg';
 
 // Import component
 import ProjectSmall from './ProjectSmall';
@@ -31,7 +31,8 @@ const ProjectsContainer = () => {
   const projectData = [
     {
       id: 0,
-      title: 'Actu.fr - Olympics games',
+      title: 'Actu.fr',
+      description: 'Event',
       link: 'https://www.behance.net/gallery/205615475/Actufr-Olympics-games-event',
       image: {
         default: imageActu,
@@ -40,7 +41,8 @@ const ProjectsContainer = () => {
     },
     {
       id: 1,
-      title: 'Slate - Media',
+      title: 'Slate',
+      description: 'Media',
       link: 'https://www.behance.net/gallery/192332371/Slatefr-Media-website',
       image: {
         default: imageSlate,
@@ -49,7 +51,8 @@ const ProjectsContainer = () => {
     },
     {
       id: 2,
-      title: 'Banque de France - Corporate',
+      title: 'Banque de France',
+      description: 'Corporate',
       link: 'https://www.behance.net/gallery/150653589/Banque-de-France-Corporate-website',
       image: {
         default: imageBanque,
@@ -58,7 +61,8 @@ const ProjectsContainer = () => {
     },
     {
       id: 3,
-      title: 'Taste France Magazine  - Media',
+      title: 'Taste France Magazine',
+      description: 'Media',
       link: 'https://www.behance.net/gallery/170954261/Taste-France-Magazine',
       image: {
         default: imageTasteFrance,
@@ -67,7 +71,8 @@ const ProjectsContainer = () => {
     },
     {
       id: 4,
-      title: 'Nexity - Corporate',
+      title: 'Nexity',
+      description: 'Corporate',
       link: 'https://www.behance.net/gallery/122497029/Nexity-Corporate-website-(Pitch)',
       image: {
         default: imageNexity,
@@ -76,7 +81,8 @@ const ProjectsContainer = () => {
     },
     {
       id: 5,
-      title: 'Bonduelle - Corporate',
+      title: 'Bonduelle',
+      description: 'Corporate',
       link: 'https://www.behance.net/gallery/132516291/Bonduelle-Corporate-Website',
       image: {
         default: imageBonduelle,
@@ -85,7 +91,8 @@ const ProjectsContainer = () => {
     },
     {
       id: 6,
-      title: 'Danone - Corporate',
+      title: 'Danone',
+      description: 'Corporate',
       link: 'https://www.behance.net/gallery/124320911/Danone-Annual-report-2020',
       image: {
         default: imageDanone,
@@ -94,7 +101,8 @@ const ProjectsContainer = () => {
     },
     {
       id: 7,
-      title: 'Elo Group - Corporate',
+      title: 'Elo Group',
+      description: 'Corporate',
       link: 'https://www.behance.net/gallery/131689655/Elo-Group-Corporate-Website',
       image: {
         default: imageElo,
@@ -103,7 +111,8 @@ const ProjectsContainer = () => {
     },
     {
       id: 8,
-      title: 'Ahp - Event',
+      title: 'Ahp',
+      description: 'Event',
       link: 'https://www.behance.net/gallery/98421997/American-Hospital-of-Paris-Event-website',
       image: {
         default: imageAhp,
@@ -112,7 +121,8 @@ const ProjectsContainer = () => {
     },
     {
       id: 9,
-      title: 'So Brico - E-commerce',
+      title: 'So Brico',
+      description: 'E-commerce',
       link: 'https://www.behance.net/gallery/122495107/Sobrico-E-commerce',
       image: {
         default: imageSobrico,
@@ -137,6 +147,7 @@ const ProjectsContainer = () => {
             <ProjectSmall
               key={projectData[1].id}
               title={projectData[1].title}
+              description={projectData[1].description}
               link={projectData[1].link}
               image={projectData[1].image}
             />
@@ -145,6 +156,7 @@ const ProjectsContainer = () => {
             <ProjectSmall
               key={projectData[2].id}
               title={projectData[2].title}
+              description={projectData[2].description}
               link={projectData[2].link}
               image={projectData[2].image}
             />
@@ -153,6 +165,7 @@ const ProjectsContainer = () => {
             <ProjectSmall
               key={projectData[3].id}
               title={projectData[3].title}
+              description={projectData[3].description}
               link={projectData[3].link}
               image={projectData[3].image}
             />
@@ -161,6 +174,7 @@ const ProjectsContainer = () => {
             <ProjectSmall
               key={projectData[4].id}
               title={projectData[4].title}
+              description={projectData[4].description}
               link={projectData[4].link}
               image={projectData[4].image}
             />
@@ -169,6 +183,7 @@ const ProjectsContainer = () => {
             <ProjectSmall
               key={projectData[5].id}
               title={projectData[5].title}
+              description={projectData[5].description}
               link={projectData[5].link}
               image={projectData[5].image}
             />
@@ -177,6 +192,7 @@ const ProjectsContainer = () => {
             <ProjectSmall
               key={projectData[6].id}
               title={projectData[6].title}
+              description={projectData[6].description}
               link={projectData[6].link}
               image={projectData[6].image}
             />
@@ -185,6 +201,7 @@ const ProjectsContainer = () => {
             <ProjectSmall
               key={projectData[7].id}
               title={projectData[7].title}
+              description={projectData[7].description}
               link={projectData[7].link}
               image={projectData[7].image}
             />
@@ -193,6 +210,7 @@ const ProjectsContainer = () => {
             <ProjectSmall
               key={projectData[8].id}
               title={projectData[8].title}
+              description={projectData[8].description}
               link={projectData[8].link}
               image={projectData[8].image}
             />
@@ -201,6 +219,7 @@ const ProjectsContainer = () => {
             <ProjectSmall
               key={projectData[9].id}
               title={projectData[9].title}
+              description={projectData[9].description}
               link={projectData[9].link}
               image={projectData[9].image}
             />

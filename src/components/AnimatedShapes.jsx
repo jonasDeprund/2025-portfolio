@@ -77,6 +77,18 @@ const AnimatedShapes = () => {
     const { Engine, Render, World, Bodies, Mouse, MouseConstraint, Runner } =
       Matter;
 
+    // Ajout de l'écouteur de scroll
+    const handleScroll = () => {
+      if (sceneRef.current) {
+        const scrollPosition = window.scrollY;
+        const opacity = Math.max(0, 1 - scrollPosition / 250); // 500 est la distance de scroll pour faire disparaître complètement
+        sceneRef.current.style.opacity = opacity;
+      }
+    };
+
+    // Ajout de l'écouteur d'événement
+    window.addEventListener('scroll', handleScroll);
+
     // Création du moteur physique
     const engine = Engine.create({
       gravity: { x: 0, y: 1, scale: 0.001 },
@@ -318,6 +330,7 @@ const AnimatedShapes = () => {
       World.clear(engine.world);
       Engine.clear(engine);
       if (render.canvas) render.canvas.remove();
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -332,6 +345,7 @@ const AnimatedShapes = () => {
         left: 0,
         zIndex: 1,
         touchAction: 'none',
+        transition: 'opacity 0.3s ease-out', // Animation douce de l'opacité
       }}
     />
   );

@@ -21,6 +21,9 @@
 
   &__scroll {
     position: absolute; // Position absolue
+    display: flex;
+    align-items: center;
+    justify-content: center;
     bottom: 3.2rem; // Distance du bas
     left: 0; // Aligné à gauche
   }

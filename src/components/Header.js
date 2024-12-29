@@ -1,4 +1,5 @@
 import React from 'react';
+import iconArrowDown from '../svg/arrow-down.svg';
 
 function Header() {
   return (
@@ -11,7 +12,8 @@ function Header() {
           </h1>
         </div>
         <div className="header__scroll cell-start-0 cell-end-12">
-          <span className="text-caption">↓ Scroll down</span>
+          <img className="icon-arrow-down" src={iconArrowDown} alt="Arrow" />
+          <span className="text-caption">Scroll down</span>
         </div>
       </div>
     </div>

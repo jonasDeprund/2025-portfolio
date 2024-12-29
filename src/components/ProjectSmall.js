@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import iconArrow from '../svg/arrow.svg';
+import iconArrow from '../svg/arrow-extern.svg';
 
-export default function ProjectSmall({ title, image, link }) {
+export default function ProjectSmall({ title, description, image, link }) {
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseEnter = () => {
@@ -28,7 +28,10 @@ export default function ProjectSmall({ title, image, link }) {
             />
           </div>
           <div className="project__description">
-            <h3 className="text-h2">{title}</h3>
+            <div className="project__text">
+              <h3 className="text-h3">{title}</h3>
+              <span className="project__category text-h3">{description}</span>
+            </div>
             <img className="project__icon" src={iconArrow} alt="Arrow" />
           </div>
         </div>
