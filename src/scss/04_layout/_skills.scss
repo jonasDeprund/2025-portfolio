@@ -1,0 +1,27 @@
+////////
+////
+//// Skills
+////
+///////
+
+.skill {
+  display: flex;
+  align-items: flex-start;
+  gap: 2.4rem;
+
+  &__icon {
+    width: 8rem;
+    height: 8rem;
+    flex-shrink: 0;
+  }
+}
+
+// Responsive
+@media screen and (max-width: 768px) {
+  .skills {
+    &__grid {
+      grid-template-columns: 1fr;
+      gap: 3.2rem;
+    }
+  }
+}

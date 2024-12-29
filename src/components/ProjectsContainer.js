@@ -139,6 +139,7 @@ const ProjectsContainer = () => {
             <ProjectLarge
               key={projectData[0].id}
               title={projectData[0].title}
+              description={projectData[0].description}
               link={projectData[0].link}
               image={projectData[0].image}
             />

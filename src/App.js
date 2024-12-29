@@ -6,6 +6,8 @@ import Footer from './components/Footer';
 import Header from './components/Header';
 import Nav from './components/Nav';
 import Projects from './components/ProjectsContainer';
+import Divider from './components/Divider';
+import Skills from './components/Skills';
 
 // Styles
 import './scss/_main.scss';
@@ -26,6 +28,9 @@ function App() {
         <main>
           <Header />
           <Projects />
+          <Divider />
+          <Skills />
+          <Divider />
         </main>
         <footer>
           <Footer />
