@@ -14,28 +14,55 @@ import './scss/_main.scss';
 
 function App() {
   return (
-    <div style={{ position: 'relative' }}>
-      <AnimatedShapes />
+    <div
+      style={{
+        position: 'relative',
+        minHeight: '100vh',
+        overflow: 'hidden',
+      }}
+    >
       <div
         style={{
           position: 'relative',
-          zIndex: 2, // Mettre le contenu au-dessus des formes
+          zIndex: 2,
+          backgroundColor: 'var(--color-background)',
+          height: '100%',
+          overflowY: 'auto',
+          overflowX: 'hidden',
+          pointerEvents: 'none', // Permet aux clics de passer à travers
         }}
       >
-        <nav>
+        <nav style={{ pointerEvents: 'auto' }}>
           <Nav />
         </nav>
         <main>
-          <Header />
-          <Projects />
-          <Divider />
-          <Skills />
-          <Divider />
+          <div
+            style={{ position: 'relative', zIndex: 999, pointerEvents: 'auto' }}
+          >
+            <Header />
+          </div>
+          <div style={{ pointerEvents: 'auto' }}>
+            <Projects />
+            <Divider />
+            <Skills />
+            <Divider />
+          </div>
         </main>
-        <footer>
+        <footer style={{ pointerEvents: 'auto' }}>
           <Footer />
         </footer>
       </div>
+      <AnimatedShapes
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          zIndex: 1,
+          pointerEvents: 'auto', // S'assure que les formes sont interactives
+        }}
+      />
     </div>
   );
 }

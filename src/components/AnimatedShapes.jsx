@@ -4,13 +4,12 @@ import Matter from 'matter-js';
 // Configuration des formes
 const SHAPES_CONFIG = {
   shape1: {
-    type: 'rectangle', // Nouveau type pour les rectangles arrondis
+    type: 'rectangle', // brique
     originalWidth: 400,
     dimensions: {
       width: 400,
-      height: 150,
+      height: 130,
       rotation: 20,
-      borderRadius: 4, // En pixels, correspond au border-radius
     },
     style: {
       fillStyle: '#F8B6EF',
@@ -19,26 +18,24 @@ const SHAPES_CONFIG = {
   },
   shape2: {
     type: 'rectangle', // Nouveau type pour les rectangles arrondis
-    originalWidth: 300,
+    originalWidth: 400,
     dimensions: {
-      width: 300,
-      height: 250,
+      width: 400,
+      height: 130,
       rotation: -40,
-      borderRadius: 4, // En pixels, correspond au border-radius
     },
     style: {
-      fillStyle: '#58BA64',
-      strokeStyle: '#58BA64',
+      fillStyle: '#7244E4',
+      strokeStyle: '#7244E4',
     },
   },
   shape3: {
     type: 'rectangle', // Nouveau type pour les rectangles arrondis
-    originalWidth: 300,
+    originalWidth: 200,
     dimensions: {
-      width: 280,
-      height: 280,
+      width: 200,
+      height: 200,
       rotation: 25,
-      borderRadius: 4, // En pixels, correspond au border-radius
     },
     style: {
       fillStyle: '#5166FF',
@@ -58,6 +55,37 @@ const SHAPES_CONFIG = {
       strokeStyle: '#FF773D',
     },
   },
+  shape5: {
+    type: 'circle',
+    originalWidth: 150,
+    dimensions: {
+      radius: 150,
+      width: 150,
+      height: 150,
+    },
+    style: {
+      fillStyle: '#FACA36',
+      strokeStyle: '#FACA36',
+    },
+  },
+  shape6: {
+    type: 'triangle',
+    originalWidth: 150,
+    dimensions: {
+      width: 200,
+      height: 200,
+      rotation: 20,
+    },
+    vertices: [
+      { x: 75, y: 0 },
+      { x: 0, y: 150 },
+      { x: 150, y: 150 },
+    ],
+    style: {
+      fillStyle: '#58BA64',
+      strokeStyle: '#58BA64',
+    },
+  },
 };
 
 // Utilitaires de calcul
@@ -74,8 +102,16 @@ const AnimatedShapes = () => {
   const engineRef = useRef(null);
 
   useEffect(() => {
-    const { Engine, Render, World, Bodies, Mouse, MouseConstraint, Runner } =
-      Matter;
+    const {
+      Engine,
+      Render,
+      World,
+      Bodies,
+      Mouse,
+      MouseConstraint,
+      Runner,
+      Events,
+    } = Matter;
 
     // Ajout de l'écouteur de scroll
     const handleScroll = () => {
@@ -185,7 +221,7 @@ const AnimatedShapes = () => {
           restitution: 0.2, // Rebond des formes lors des collisions (min: 0 = pas de rebond, max: 1 = rebond parfait)
           friction: 1, // Friction avec les autres formes (min: 0 = glissant, max: 1 = rugueux)
           density: 0.6, // Densité/masse de la forme
-          frictionAir: 0.05, // Friction avec l'air (ralentissement)
+          frictionAir: 0.1, // Friction avec l'air (ralentissement)
         });
       } else if (config.type === 'rectangle') {
         const scale =
@@ -206,7 +242,27 @@ const AnimatedShapes = () => {
           restitution: 0.2, // Rebond des formes lors des collisions (min: 0 = pas de rebond, max: 1 = rebond parfait)
           friction: 1, // Friction avec les autres formes (min: 0 = glissant, max: 1 = rugueux)
           density: 0.6, // Densité/masse de la forme
-          frictionAir: 0.05, // Friction avec l'air (ralentissement)
+          frictionAir: 0.1, // Friction avec l'air (ralentissement)
+        });
+      } else if (config.type === 'triangle') {
+        const scale =
+          calcUtils.remToPx(calcUtils.pxToRem(config.dimensions.width)) /
+          config.originalWidth;
+        const scaledVertices = config.vertices.map((vertex) => ({
+          x: vertex.x * scale,
+          y: vertex.y * scale,
+        }));
+
+        return Bodies.fromVertices(xPos, yPos, [scaledVertices], {
+          render: {
+            ...config.style,
+            lineWidth: 1,
+          },
+          angle: calcUtils.degToRad(config.dimensions.rotation),
+          restitution: 0.2,
+          friction: 1,
+          density: 0.6,
+          frictionAir: 0.1,
         });
       } else {
         const scale =
@@ -226,7 +282,7 @@ const AnimatedShapes = () => {
           restitution: 0.2, // Rebond des formes lors des collisions (min: 0 = pas de rebond, max: 1 = rebond parfait)
           friction: 1, // Friction avec les autres formes (min: 0 = glissant, max: 1 = rugueux)
           density: 0.6, // Densité/masse de la forme
-          frictionAir: 0.05, // Friction avec l'air (ralentissement)
+          frictionAir: 0.2, // Friction avec l'air (ralentissement)
         });
       }
     };
@@ -238,6 +294,8 @@ const AnimatedShapes = () => {
         { config: SHAPES_CONFIG.shape2, x: calcUtils.widthPercent(75) },
         { config: SHAPES_CONFIG.shape3, x: calcUtils.widthPercent(85) },
         { config: SHAPES_CONFIG.shape4, x: calcUtils.widthPercent(90) },
+        { config: SHAPES_CONFIG.shape5, x: calcUtils.widthPercent(95) },
+        { config: SHAPES_CONFIG.shape6, x: calcUtils.widthPercent(80) },
       ];
 
       let shapes = [];
@@ -268,7 +326,7 @@ const AnimatedShapes = () => {
 
       World.add(engine.world, [...walls, ...shapes]);
 
-      // Configuration plus détaillée de la souris
+      // Configuration de la souris
       const mouse = Mouse.create(render.canvas);
       const mouseConstraint = MouseConstraint.create(engine, {
         mouse: mouse,
@@ -278,23 +336,26 @@ const AnimatedShapes = () => {
             visible: false,
           },
         },
-        collisionFilter: {
-          category: 0x0001,
-          mask: 0xffffffff,
-          group: 0,
-        },
       });
 
-      // Assurez-vous que le canvas peut recevoir les événements de la souris
-      render.canvas.addEventListener('mousedown', function (e) {
-        e.preventDefault();
+      // Mise à jour de la position de la souris pour tenir compte des marges
+      mouse.offset = { x: 0, y: 0 };
+
+      // Gestion explicite du relâchement de la souris
+      Events.on(mouseConstraint, 'mouseup', () => {
+        mouseConstraint.body = null;
+      });
+
+      Events.on(mouseConstraint, 'mouseleave', () => {
+        mouseConstraint.body = null;
+      });
+
+      // Désactiver la contrainte si la souris sort du canvas
+      render.canvas.addEventListener('mouseleave', () => {
+        mouseConstraint.body = null;
       });
 
       render.canvas.style.pointerEvents = 'auto';
-
-      World.add(engine.world, mouseConstraint);
-      render.mouse = mouse;
-
       World.add(engine.world, mouseConstraint);
       render.mouse = mouse;
 
@@ -343,9 +404,12 @@ const AnimatedShapes = () => {
         position: 'fixed',
         top: 0,
         left: 0,
+        right: 0,
+        bottom: 0,
         zIndex: 1,
         touchAction: 'none',
-        transition: 'opacity 0.3s ease-out', // Animation douce de l'opacité
+        transform: 'translateZ(0)',
+        transition: 'opacity 0.3s ease-out',
       }}
     />
   );
