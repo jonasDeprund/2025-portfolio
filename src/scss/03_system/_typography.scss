@@ -24,18 +24,13 @@
 .text-h3 {
   font-family: 'neue_haas_unica_w1gmedium';
   font-size: 2rem;
-  line-height: 150%;
-  color: var(--color-white);
+  line-height: 150%; /* 30px */
 }
 
 .text-current {
   font-family: 'neue_haas_unica_w1gregular';
   font-size: 2rem;
-  font-style: normal;
   line-height: 150%; /* 30px */
-  letter-spacing: 0.05px;
-  font-feature-settings: 'liga' off, 'clig' off;
-  color: var(--color-white);
 }
 
 .text-caption {

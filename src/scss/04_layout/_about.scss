@@ -4,23 +4,6 @@
 ////
 ///////
 
-.about {
-  margin: 4rem 0;
-}
-
-.about::after {
-  content: '';
-  display: block;
-  height: 1px;
-  background-color: white;
-  opacity: 0.2;
-  max-width: 134rem;
-  margin: auto;
-  min-width: 0;
-  width: 100%;
-  margin-top: 4.8rem;
-}
-
 h2 {
   margin-bottom: 3.2rem;
 }

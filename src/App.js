@@ -8,6 +8,7 @@ import Nav from './components/Nav';
 import Projects from './components/ProjectsContainer';
 import Divider from './components/Divider';
 import Skills from './components/Skills';
+import About from './components/About';
 
 // Styles
 import './scss/_main.scss';
@@ -45,6 +46,8 @@ function App() {
             <Projects />
             <Divider />
             <Skills />
+            <Divider />
+            <About />
             <Divider />
           </div>
         </main>

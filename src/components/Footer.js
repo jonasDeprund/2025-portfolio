@@ -11,7 +11,7 @@ function Footer() {
         <div className="row">
           <div className="cell-6 cell-12-tp">
             <div className="social-container">
-              <p className="text-h3">Follow me</p>
+              <p className="text-h3 color-white">Follow me</p>
               <a
                 rel="noreferrer"
                 className="icon"

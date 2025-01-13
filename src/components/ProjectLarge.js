@@ -29,8 +29,10 @@ export default function ProjectLarge({ title, description, image, link }) {
           </div>
           <div className="project__description">
             <div className="project__text">
-              <h3 className="text-h3">{title}</h3>
-              <span className="project__category text-h3">{description}</span>
+              <h3 className="text-h3 color-white">{title}</h3>
+              <span className="project__category text-h3 color-grey-light">
+                {description}
+              </span>
             </div>
             <img className="project__icon" src={iconArrow} alt="Arrow" />
           </div>
