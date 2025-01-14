@@ -47,9 +47,10 @@
   color: var(--color-white);
 }
 
+// Responsive
 @media only screen and (max-width: 767px) {
-  .text-h1-m {
-    font-size: 2.4rem;
+  .text-h1 {
+    font-size: 3.2rem;
     line-height: 4.2rem;
   }
 

@@ -5,7 +5,7 @@
 ///////
 
 .header {
-  height: calc(100vh - 107px);
+  height: calc(100vh - 107px); // Soustrait la hauteur de la navigation
   position: relative; // Important pour le positionnement absolu du scroll
 
   .row {
@@ -15,16 +15,16 @@
 
   &__title {
     display: flex;
-    align-items: center;
-    height: 100%;
+    align-items: center; // Centre verticalement
+    height: 100%; // Prend toute la hauteur disponible
   }
 
   &__scroll {
-    position: absolute; // Position absolue
+    position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
-    bottom: 3.2rem; // Distance du bas
-    left: 0; // Aligné à gauche
+    bottom: 3.2rem;
+    left: 0;
   }
 }
