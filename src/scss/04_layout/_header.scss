@@ -16,7 +16,7 @@
   &__title {
     display: flex;
     align-items: center; // Centre verticalement
-    height: 100%; // Prend toute la hauteur disponible
+    height: calc(100% - 107px); // Prend toute la hauteur disponible
   }
 
   &__scroll {

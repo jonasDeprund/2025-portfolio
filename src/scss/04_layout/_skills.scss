@@ -5,6 +5,10 @@
 ///////
 
 .skills {
+  .row {
+    gap: 2.4rem;
+  }
+
   .skill {
     display: flex;
     align-items: center;
