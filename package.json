@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^13.5.0",
     "gsap": "^3.12.5",
     "link-react": "^3.0.0",
+    "lottie-web": "^5.12.2",
     "matter-js": "^0.20.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
