@@ -1,12 +1,16 @@
 import React from 'react';
 
 // Assets
+
+import identityAnimation from '../assets/lottie/animation-identity.json';
+import interfaceAnimation from '../assets/lottie/animation-interface.json';
+import motionAnimation from '../assets/lottie/animation-motion.json';
+import illustrationAnimation from '../assets/lottie/animation-illustration.json';
+import lottie from 'lottie-web';
 import visualIdentity from '../svg/visual-identity.svg';
 import visualInterface from '../svg/visual-interface.svg';
 import visualMotion from '../svg/visual-motion.svg';
 import visualIllustration from '../svg/visual-illustration.svg';
-import identityAnimation from '../assets/lottie/animation-identity.json';
-import lottie from 'lottie-web';
 
 const Skills = () => {
   const skillsData = [
@@ -15,78 +19,73 @@ const Skills = () => {
       title: 'Identity',
       description: 'Creating visual identities for meaningful impact.',
       icon: visualIdentity,
-      isLottie: true,
+      animation: identityAnimation,
     },
     {
       id: 2,
       title: 'Interface',
       description: 'Designing intuitive user experiences.',
       icon: visualInterface,
+      animation: interfaceAnimation,
     },
     {
       id: 3,
       title: 'Motion',
       description: 'Animating ideas to enhance storytelling.',
       icon: visualMotion,
+      animation: motionAnimation,
     },
     {
       id: 4,
       title: 'Illustration',
       description: 'Crafting custom visuals for every project.',
       icon: visualIllustration,
+      animation: illustrationAnimation,
     },
   ];
 
-  const identityRef = React.useRef(null);
-  const animationInstance = React.useRef(null);
-  const isPlayingRef = React.useRef(false);
+  const animationRefs = React.useRef({});
+  const containerRefs = React.useRef({});
 
   React.useEffect(() => {
-    if (identityRef.current) {
-      animationInstance.current = lottie.loadAnimation({
-        container: identityRef.current,
-        renderer: 'svg',
-        loop: false,
-        autoplay: false,
-        animationData: identityAnimation,
-      });
-
-      animationInstance.current.addEventListener('complete', () => {
-        isPlayingRef.current = false;
-      });
-    }
-
-    return () => {
-      if (animationInstance.current) {
-        animationInstance.current.removeEventListener('complete');
-        animationInstance.current.destroy();
+    // Initialiser toutes les animations
+    skillsData.forEach((skill) => {
+      if (containerRefs.current[skill.id]) {
+        animationRefs.current[skill.id] = lottie.loadAnimation({
+          container: containerRefs.current[skill.id],
+          renderer: 'svg',
+          loop: false,
+          autoplay: false,
+          animationData: skill.animation,
+        });
       }
+    });
+
+    // Cleanup
+    return () => {
+      Object.values(animationRefs.current).forEach((anim) => {
+        if (anim) anim.destroy();
+      });
     };
   }, []);
 
-  const handleMouseEnter = () => {
-    if (animationInstance.current && !isPlayingRef.current) {
-      isPlayingRef.current = true;
-      animationInstance.current.goToAndPlay(0);
+  const handleMouseEnter = (skillId) => {
+    const animation = animationRefs.current[skillId];
+    if (animation) {
+      animation.goToAndPlay(0);
     }
   };
 
-  const renderSkillIcon = (skill) => {
-    if (skill.isLottie) {
-      return (
-        <div
-          ref={identityRef}
-          className="skill__icon"
-          onMouseEnter={handleMouseEnter}
-        />
-      );
-    }
-    return (
-      <div className="skill__icon">
-        <img src={skill.icon} alt={skill.title} />
-      </div>
-    );
-  };
+  const renderSkillIcon = (skill) => (
+    <div className="skill__icon">
+      <img src={skill.icon} alt={skill.title} className="skill__icon-static" />
+      <div
+        ref={(el) => (containerRefs.current[skill.id] = el)}
+        className="skill__icon-animation"
+        onMouseEnter={() => handleMouseEnter(skill.id)}
+      />
+    </div>
+  );
 
   return (
     <div className="skills">
