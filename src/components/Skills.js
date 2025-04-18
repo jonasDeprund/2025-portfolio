@@ -46,32 +46,47 @@ const Skills = () => {
 
   const animationRefs = React.useRef({});
   const containerRefs = React.useRef({});
+  const isPlayingRefs = React.useRef({});
 
   React.useEffect(() => {
-    // Initialiser toutes les animations
     skillsData.forEach((skill) => {
       if (containerRefs.current[skill.id]) {
-        animationRefs.current[skill.id] = lottie.loadAnimation({
+        const animation = lottie.loadAnimation({
           container: containerRefs.current[skill.id],
           renderer: 'svg',
           loop: false,
           autoplay: false,
           animationData: skill.animation,
         });
+
+        animation.addEventListener('complete', () => {
+          isPlayingRefs.current[skill.id] = false;
+          if (containerRefs.current[skill.id]) {
+            containerRefs.current[skill.id].style.opacity = '0';
+          }
+        });
+
+        animationRefs.current[skill.id] = animation;
       }
     });
 
-    // Cleanup
     return () => {
       Object.values(animationRefs.current).forEach((anim) => {
-        if (anim) anim.destroy();
+        if (anim) {
+          anim.removeEventListener('complete');
+          anim.destroy();
+        }
       });
     };
   }, []);
 
   const handleMouseEnter = (skillId) => {
     const animation = animationRefs.current[skillId];
-    if (animation) {
+    const container = containerRefs.current[skillId];
+
+    if (animation && !isPlayingRefs.current[skillId]) {
+      isPlayingRefs.current[skillId] = true;
+      container.style.opacity = '1';
       animation.goToAndPlay(0);
     }
   };
