@@ -97,7 +97,6 @@ const Skills = () => {
       <div
         ref={(el) => (containerRefs.current[skill.id] = el)}
         className="skill__icon-animation"
-        onMouseEnter={() => handleMouseEnter(skill.id)}
       />
     </div>
   );
@@ -111,7 +110,11 @@ const Skills = () => {
 
         <div className="cell-start-0 cell-end-6">
           {skillsData.slice(0, 2).map((skill) => (
-            <div key={skill.id} className="skill">
+            <div
+              key={skill.id}
+              className="skill"
+              onMouseEnter={() => handleMouseEnter(skill.id)}
+            >
               {renderSkillIcon(skill)}
               <div className="skill__content">
                 <h3 className="text-h3 color-white">{skill.title}</h3>
@@ -123,7 +126,11 @@ const Skills = () => {
 
         <div className="cell-start-6 cell-end-12">
           {skillsData.slice(2, 4).map((skill) => (
-            <div key={skill.id} className="skill">
+            <div
+              key={skill.id}
+              className="skill"
+              onMouseEnter={() => handleMouseEnter(skill.id)}
+            >
               {renderSkillIcon(skill)}
               <div className="skill__content">
                 <h3 className="text-h3 color-white">{skill.title}</h3>
