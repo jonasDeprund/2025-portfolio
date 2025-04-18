@@ -300,10 +300,8 @@ const AnimatedShapes = () => {
 
       let shapes = [];
 
-      // Mélanger l'ordre des formes de façon aléatoire
       const shuffledShapes = [...shapesConfig].sort(() => Math.random() - 0.5);
 
-      // Créer et ajouter chaque forme avec un délai
       shuffledShapes.forEach((shapeData, index) => {
         setTimeout(() => {
           const shape = createScaledShape(
@@ -311,6 +309,12 @@ const AnimatedShapes = () => {
             shapeData.x,
             startHeight
           );
+          // Ajout des propriétés pour une meilleure interaction souris
+          shape.isStatic = false;
+          shape.inertia = Infinity; // Permet une rotation libre
+          shape.friction = 0.1; // Réduit la friction pour un meilleur glissement
+          shape.restitution = 0.5; // Augmente le rebond
+
           shapes.push(shape);
           World.add(engine.world, shape);
         }, index * 200);
@@ -326,17 +330,23 @@ const AnimatedShapes = () => {
 
       World.add(engine.world, [...walls, ...shapes]);
 
-      // Configuration de la souris
       const mouse = Mouse.create(render.canvas);
       const mouseConstraint = MouseConstraint.create(engine, {
         mouse: mouse,
         constraint: {
-          stiffness: 0.2,
+          stiffness: 0.2, // Réduit pour un mouvement plus fluide
           render: {
             visible: false,
           },
+          damping: 0.1, // Ajoute un amortissement pour un mouvement plus naturel
+        },
+        collisionFilter: {
+          mask: 0xffffff, // Permet l'interaction avec toutes les formes
         },
       });
+
+      // Améliore la précision de la souris
+      mouse.pixelRatio = window.devicePixelRatio;
 
       // Mise à jour de la position de la souris pour tenir compte des marges
       mouse.offset = { x: 0, y: 0 };

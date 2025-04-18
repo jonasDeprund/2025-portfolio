@@ -22,39 +22,6 @@ function App() {
         overflow: 'hidden',
       }}
     >
-      <div
-        style={{
-          position: 'relative',
-          zIndex: 2,
-          backgroundColor: 'var(--color-background)',
-          height: '100%',
-          overflowY: 'auto',
-          overflowX: 'hidden',
-          pointerEvents: 'none', // Permet aux clics de passer à travers
-        }}
-      >
-        <nav style={{ pointerEvents: 'auto' }}>
-          <Nav />
-        </nav>
-        <main>
-          <div
-            style={{ position: 'relative', zIndex: 999, pointerEvents: 'auto' }}
-          >
-            <Header />
-          </div>
-          <div style={{ pointerEvents: 'auto' }}>
-            <Projects />
-            <Divider />
-            <Skills />
-            <Divider />
-            <About />
-            <Divider />
-          </div>
-        </main>
-        <footer style={{ pointerEvents: 'auto' }}>
-          <Footer />
-        </footer>
-      </div>
       <AnimatedShapes
         style={{
           position: 'fixed',
@@ -63,9 +30,42 @@ function App() {
           right: 0,
           bottom: 0,
           zIndex: 1,
-          pointerEvents: 'auto', // S'assure que les formes sont interactives
+          cursor: 'grab',
         }}
       />
+      <div
+        style={{
+          position: 'relative',
+          zIndex: 2,
+          height: '100%',
+          overflowY: 'auto',
+          overflowX: 'hidden',
+          background: 'transparent',
+          pointerEvents: 'auto',
+        }}
+      >
+        <div style={{ pointerEvents: 'none' }}>
+          <nav style={{ pointerEvents: 'auto' }}>
+            <Nav />
+          </nav>
+          <main>
+            <div style={{ position: 'relative' }}>
+              <Header />
+            </div>
+            <div style={{ pointerEvents: 'auto' }}>
+              <Projects />
+              <Divider />
+              <Skills />
+              <Divider />
+              <About />
+              <Divider />
+            </div>
+          </main>
+          <footer style={{ pointerEvents: 'auto' }}>
+            <Footer />
+          </footer>
+        </div>
+      </div>
     </div>
   );
 }
