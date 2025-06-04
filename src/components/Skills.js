@@ -12,38 +12,38 @@ import visualInterface from '../svg/visual-interface.svg';
 import visualMotion from '../svg/visual-motion.svg';
 import visualIllustration from '../svg/visual-illustration.svg';
 
-const Skills = () => {
-  const skillsData = [
-    {
-      id: 1,
-      title: 'Identity',
-      description: 'Creating visual identities for meaningful impact.',
-      icon: visualIdentity,
-      animation: identityAnimation,
-    },
-    {
-      id: 2,
-      title: 'Interface',
-      description: 'Designing intuitive user experiences.',
-      icon: visualInterface,
-      animation: interfaceAnimation,
-    },
-    {
-      id: 3,
-      title: 'Motion',
-      description: 'Animating ideas to enhance storytelling.',
-      icon: visualMotion,
-      animation: motionAnimation,
-    },
-    {
-      id: 4,
-      title: 'Illustration',
-      description: 'Crafting custom visuals for every project.',
-      icon: visualIllustration,
-      animation: illustrationAnimation,
-    },
-  ];
+const skillsData = [
+  {
+    id: 1,
+    title: 'Identity',
+    description: 'Creating visual identities for meaningful impact.',
+    icon: visualIdentity,
+    animation: identityAnimation,
+  },
+  {
+    id: 2,
+    title: 'Interface',
+    description: 'Designing intuitive user experiences.',
+    icon: visualInterface,
+    animation: interfaceAnimation,
+  },
+  {
+    id: 3,
+    title: 'Motion',
+    description: 'Animating ideas to enhance storytelling.',
+    icon: visualMotion,
+    animation: motionAnimation,
+  },
+  {
+    id: 4,
+    title: 'Illustration',
+    description: 'Crafting custom visuals for every project.',
+    icon: visualIllustration,
+    animation: illustrationAnimation,
+  },
+];
 
+const Skills = () => {
   const animationRefs = React.useRef({});
   const containerRefs = React.useRef({});
   const isPlayingRefs = React.useRef({});
@@ -117,8 +117,10 @@ const Skills = () => {
             >
               {renderSkillIcon(skill)}
               <div className="skill__content">
-                <h3 className="text-h3 color-white">{skill.title}</h3>
-                <p className="text-h3 color-grey-light">{skill.description}</p>
+                <h3 className="text-current color-white">{skill.title}</h3>
+                <p className="text-current color-grey-light">
+                  {skill.description}
+                </p>
               </div>
             </div>
           ))}
@@ -133,7 +135,7 @@ const Skills = () => {
             >
               {renderSkillIcon(skill)}
               <div className="skill__content">
-                <h3 className="text-h3 color-white">{skill.title}</h3>
+                <h3 className="text-current color-white">{skill.title}</h3>
                 <p className="text-current color-grey-light">
                   {skill.description}
                 </p>

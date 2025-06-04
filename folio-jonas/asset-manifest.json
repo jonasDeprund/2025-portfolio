@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "./static/css/main.9ed400d6.css",
-    "main.js": "./static/js/main.e47146b4.js",
+    "main.css": "./static/css/main.e5b33f2f.css",
+    "main.js": "./static/js/main.44c56de5.js",
     "static/media/thumb-actu.png": "./static/media/thumb-actu.5c0a130a50b4bbadd76f.png",
     "static/media/thumb-ahp.png": "./static/media/thumb-ahp.bdf9cec735274d064719.png",
     "static/media/thumb-taste-france.png": "./static/media/thumb-taste-france.5fa10fca3224a25c7218.png",
@@ -33,18 +33,17 @@
     "static/media/dribbble.svg": "./static/media/dribbble.9324ddcde94467c529b30bfdf7133b22.svg",
     "static/media/github.svg": "./static/media/github.10033bf7de212689a90032a5bb7d260d.svg",
     "static/media/logo.svg": "./static/media/logo.246b178c2be6c17cd0d3f90e5d4910da.svg",
-    "static/media/vimeo.svg": "./static/media/vimeo.d30cbd715a1d76a5c774b1670d367105.svg",
     "static/media/visual-interface.svg": "./static/media/visual-interface.fcb52fd7b6901e516df633d2f3e8a907.svg",
     "static/media/visual-identity.svg": "./static/media/visual-identity.82704d094e7140f3e65447b008546617.svg",
     "static/media/visual-illustration.svg": "./static/media/visual-illustration.480d92a42b56b6ec4b9c1659db16d93b.svg",
     "static/media/visual-motion.svg": "./static/media/visual-motion.c29eb13e36fe6a3e7dda74ddb06cd889.svg",
     "static/media/arrow-down.svg": "./static/media/arrow-down.053f11ef6c18c2b7177d007f34231756.svg",
     "static/media/arrow-extern.svg": "./static/media/arrow-extern.6b1a3245eb2ff303b1178055b54ab317.svg",
-    "main.9ed400d6.css.map": "./static/css/main.9ed400d6.css.map",
-    "main.e47146b4.js.map": "./static/js/main.e47146b4.js.map"
+    "main.e5b33f2f.css.map": "./static/css/main.e5b33f2f.css.map",
+    "main.44c56de5.js.map": "./static/js/main.44c56de5.js.map"
   },
   "entrypoints": [
-    "static/css/main.9ed400d6.css",
-    "static/js/main.e47146b4.js"
+    "static/css/main.e5b33f2f.css",
+    "static/js/main.44c56de5.js"
   ]
 }

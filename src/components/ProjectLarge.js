@@ -29,8 +29,8 @@ export default function ProjectLarge({ title, description, image, link }) {
           </div>
           <div className="project__description">
             <div className="project__text">
-              <h3 className="text-h3 color-white">{title}</h3>
-              <span className="project__category text-h3 color-grey-light">
+              <h3 className="text-current color-white">{title}</h3>
+              <span className="project__category text-current color-grey-light">
                 {description}
               </span>
             </div>

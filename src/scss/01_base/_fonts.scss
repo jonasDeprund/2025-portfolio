@@ -14,18 +14,21 @@
 }
 
 @font-face {
-  font-family: 'neue_haas_unica_w1gmedium';
-  src: url('../../fonts/neue_haas_unica_w1g_medium-webfont.woff2')
+  font-family: 'neue_haas_unica_promedium';
+  src: url('../../fonts/linotype_-_neue_haas_unica_pro_medium-webfont.woff2')
       format('woff2'),
-    url('../../fonts/neue_haas_unica_w1g_medium-webfont.woff') format('woff');
+    url('../../fonts/linotype_-_neue_haas_unica_pro_medium-webfont.woff')
+      format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'neue_haas_unica_w1gregular';
-  src: url('../../fonts/neue_haas_unica_w1g-webfont.woff2') format('woff2'),
-    url('../../fonts/neue_haas_unica_w1g-webfont.woff') format('woff');
+  font-family: 'neue_haas_unica_proregular';
+  src: url('../../fonts/linotype_-_neue_haas_unica_pro-webfont.woff2')
+      format('woff2'),
+    url('../../fonts/linotype_-_neue_haas_unica_pro-webfont.woff')
+      format('woff');
   font-weight: normal;
   font-style: normal;
 }
